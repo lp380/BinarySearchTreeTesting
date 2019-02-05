@@ -134,6 +134,14 @@ public class Main extends Application {
 
         ///////////////
 
+        searchFilter.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                int selectedIndex = searchFilter.getSelectionModel().getSelectedIndex();
+                System.out.println(searchFilter.getItems().get(selectedIndex));
+            }
+        });
+
 
         // clear results button
 
