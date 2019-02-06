@@ -67,10 +67,14 @@ public class Main extends Application {
 
         final ComboBox searchFilter = new ComboBox(options);
 
+
+
+
         grid.add(searchFilter, 2, 1);
 
 
         TextField userTextField = new TextField();
+        userTextField.setId("textField");
         // Add a text field to the grid pane at column 1, row 1
         grid.add(userTextField, 1, 1);
 
@@ -101,7 +105,8 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 actiontarget.setFill(Color.FIREBRICK);
-                actiontarget.setText("Sign in button pressed");
+                actiontarget.setText("Search button pressed");
+
             }
         });
 
@@ -109,6 +114,7 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 userTextField.clear();
+                searchFilter.getSelectionModel().clearSelection();
             }
         });
 
@@ -150,7 +156,40 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 int selectedIndex = searchFilter.getSelectionModel().getSelectedIndex();
-                System.out.println(searchFilter.getItems().get(selectedIndex));
+                //String choice = (String) searchFilter.getItems().get(selectedIndex);
+
+                String choice = "";
+
+                switch(selectedIndex) {
+                    case 0:
+                        choice = "First Name";
+                        break;
+                    case 1:
+                        choice = "Last Name";
+                        break;
+                    case 2:
+                        choice = "E-Mail";
+                        break;
+                    case 3:
+                        choice = "Company";
+                        break;
+                    case 4:
+                        choice = "Job Title";
+                        break;
+                    case 5:
+                        choice = "University";
+                        break;
+                }
+
+                System.out.println(choice);
+
+
+                // first name, last name, e-mail, company, job title, university
+
+                // userTextField.setPromptText("");
+
+
+
             }
         });
 
