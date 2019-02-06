@@ -40,18 +40,12 @@ public class BinarySearchTree {
     // If the new node's value is greater than the current node, go to the right child
     // When the current node is null, we've reached a leaf node and can insert the new node in that position
 
-    public void add(int value) {
+    public void add(PersonRecord value) {
         add(root, value);
     }
 
 
     private Node add(Node current, PersonRecord person) {
-
-        "a".compareTo("b"); // returns a negative number, here -1
-        "a".compareTo("a"); // returns  0
-        "b".compareTo("a"); // returns a positive number, here 1
-        "b".compareTo(null); // throws java.lang.Nul
-
 
         if(current == null) {
             return new Node(person);
@@ -66,26 +60,31 @@ public class BinarySearchTree {
         }
 
         return current;
-
     }
 
-    public boolean contains(int value) {
+    public PersonRecord getPersonByLastName(String lastName) {
+        
+    }
+
+
+
+    public boolean contains(PersonRecord value) {
         return contains(root, value);
     }
 
-    private boolean contains(Node current, int value) {
+    private boolean contains(Node current, PersonRecord personToFind) {
         if(current == null) {
             return false;
         }
 
-        if(value == current.value) {
+        if(personToFind.getLastname().equals(current.value.getLastname())) {
             return true;
         }
 
-        if(value < current.value) {
-            contains(current.left, value);
+        if(personToFind.getLastname().compareTo(current.value.getLastname()) < 0) {
+            contains(current.left, personToFind);
         } else {
-            contains(current.right, value);
+            contains(current.right, personToFind);
         }
 
         return false;
