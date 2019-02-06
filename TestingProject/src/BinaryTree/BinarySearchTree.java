@@ -11,6 +11,8 @@ public class BinarySearchTree {
 
     Node root;
 
+    // store people by last name
+
     public BinarySearchTree() {
 
     }
@@ -43,20 +45,28 @@ public class BinarySearchTree {
     }
 
 
-    private Node add(Node current, int value) {
+    private Node add(Node current, PersonRecord person) {
+
+        "a".compareTo("b"); // returns a negative number, here -1
+        "a".compareTo("a"); // returns  0
+        "b".compareTo("a"); // returns a positive number, here 1
+        "b".compareTo(null); // throws java.lang.Nul
+
+
         if(current == null) {
-            return new Node(value);
+            return new Node(person);
         }
 
-        if(value < current.value) {
-            current.left = add(current.left, value);
-        } else if(value > current.value) {
-            current.right = add(current.right, value);
-        } else { // value exists
+        if(person.getLastname().compareTo(current.value.getLastname()) < 0)  {
+            current.left = add(current.left, person);
+        } else if(person.getLastname().compareTo(current.value.getLastname()) > 1) {
+            current.right = add(current.right, person);
+        } else { // last name already exists ??
             return current;
         }
 
         return current;
+
     }
 
     public boolean contains(int value) {

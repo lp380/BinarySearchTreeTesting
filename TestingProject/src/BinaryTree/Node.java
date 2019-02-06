@@ -6,11 +6,11 @@ public class Node {
 
     private int size; // number of nodes in the tree rooted at this node
 
-    int value;
+    PersonRecord value;
     Node left;
     Node right;
 
-    Node(int value) {
+    Node(PersonRecord value) {
         this.value = value;
         this.right = null;
         this.left = null;
