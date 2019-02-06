@@ -50,7 +50,7 @@ public class PersonRecord {
 
 
     public String toString() {
-        return id + " " + firstName + " " + lastName + " " + email + " " + company + " " + jobTitle + " " + university);
+        return id + " " + firstName + " " + lastName + " " + email + " " + company + " " + jobTitle + " " + university;
 
     }
     
