@@ -10,7 +10,7 @@ public class PersonRecord {
     private String jobTitle;
     private String university;
 
-    PersonRecord(String id, String firstName, String lastName, String email, String company, String jobTitle, String university) {
+    public PersonRecord(String id, String firstName, String lastName, String email, String company, String jobTitle, String university) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
