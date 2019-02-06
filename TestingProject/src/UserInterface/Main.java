@@ -66,6 +66,7 @@ public class Main extends Application {
                 );
 
         final ComboBox searchFilter = new ComboBox(options);
+        searchFilter.getSelectionModel().selectFirst();
 
 
 
@@ -74,6 +75,7 @@ public class Main extends Application {
 
 
         TextField userTextField = new TextField();
+        userTextField.setPromptText("John...");
         userTextField.setId("textField");
         // Add a text field to the grid pane at column 1, row 1
         grid.add(userTextField, 1, 1);
@@ -115,6 +117,9 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 userTextField.clear();
                 searchFilter.getSelectionModel().clearSelection();
+                searchFilter.getSelectionModel().selectFirst();
+                userTextField.setPromptText("John...");
+
             }
         });
 
@@ -163,21 +168,27 @@ public class Main extends Application {
                 switch(selectedIndex) {
                     case 0:
                         choice = "First Name";
+                        userTextField.setPromptText("John...");
                         break;
                     case 1:
                         choice = "Last Name";
+                        userTextField.setPromptText("Phillips...");
                         break;
                     case 2:
                         choice = "E-Mail";
+                        userTextField.setPromptText("johndoe@gmail.com...");
                         break;
                     case 3:
                         choice = "Company";
+                        userTextField.setPromptText("Communist New Network...");
                         break;
                     case 4:
                         choice = "Job Title";
+                        userTextField.setPromptText("Russian Spy...");
                         break;
                     case 5:
                         choice = "University";
+                        userTextField.setPromptText("Lebanon Valley College...");
                         break;
                 }
 
