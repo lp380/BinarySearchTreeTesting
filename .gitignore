@@ -2,11 +2,11 @@
 # https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 
 # User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf 
+CSVReader/.idea/**/workspace.xml
+CSVReader/.idea/**/tasks.xml
+CSVReader/.idea/**/usage.statistics.xml
+CSVReader.idea/**/dictionaries
+CSVReader/.idea/**/shelf 
 UserInterfaceModule/.idea/workspace.xml
 
 # IntelliJ
