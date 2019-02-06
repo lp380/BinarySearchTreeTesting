@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import Models.PersonRecord;
+
 public class BinarySearchTree {
 
     /*
@@ -8,6 +10,26 @@ public class BinarySearchTree {
      */
 
     Node root;
+
+    public BinarySearchTree() {
+
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    public int size() {
+        return size(root);
+    }
+
+    private int size(Node x) {
+        if(x == null) {
+            return 0;
+        } else {
+            return x.getSize();
+        }
+    }
 
     // We want to keep the tree sorted
 
