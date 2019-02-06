@@ -22,8 +22,13 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    Stage stage;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+        stage = primaryStage;
+
         primaryStage.setTitle("JavaFX Welcome");
 
         primaryStage.show();
@@ -100,6 +105,13 @@ public class Main extends Application {
             }
         });
 
+        clearBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                userTextField.clear();
+            }
+        });
+
 ///////////////
 
         TableView table = new TableView();
@@ -141,6 +153,8 @@ public class Main extends Application {
                 System.out.println(searchFilter.getItems().get(selectedIndex));
             }
         });
+
+
 
 
         // clear results button
