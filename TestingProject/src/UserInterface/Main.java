@@ -1,4 +1,4 @@
-package sample;
+package UserInterface;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -58,11 +58,11 @@ public class Main extends Application {
         ObservableList<String> options =
                 FXCollections.observableArrayList(
                         "First Name",
-                                "Last Name",
-                                "E-mail",
-                                "Company",
-                                "Job Title",
-                                "University"
+                        "Last Name",
+                        "E-mail",
+                        "Company",
+                        "Job Title",
+                        "University"
                 );
 
         final ComboBox searchFilter = new ComboBox(options);
