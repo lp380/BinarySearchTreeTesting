@@ -8,7 +8,7 @@ public class CSVReader {
 
     public static void main(String[] args) {
 
-        String csvFile = "MOCK_DATA.csv";
+        String csvFile = "/home/logan/BinarySearchTreeTesting/TestingProject/src/DatabaseServices/MOCK_DATA.csv";
         BufferedReader reader = null;
         String line = "";
         String cvsSplitBy = ",";
