@@ -51,10 +51,6 @@ public class Main extends Application {
         // Add to column 0, row 0. Set the column span to 2 and the row span to 1
         grid.add(scenetitle, 0, 0, 2, 1);
 
-
-
-
-
         ObservableList<String> options =
                 FXCollections.observableArrayList(
                         "First Name",
@@ -136,15 +132,15 @@ public class Main extends Application {
         vbox.setPadding(new Insets(10, 0, 0, 10));
         vbox.getChildren().addAll(label, table);
 
-        grid.add(vbox, 1, 5);
+        grid.add(vbox, 0, 5);
 
         Button clearTableBtn = new Button("Clear Table");
         HBox hbBtn2 = new HBox(10);
 
-        hbBtn2.setAlignment(Pos.BOTTOM_RIGHT);
+        hbBtn2.setAlignment(Pos.BOTTOM_LEFT);
         hbBtn2.getChildren().addAll(clearTableBtn);
 
-        grid.add(hbBtn2, 1, 6);
+        grid.add(hbBtn2, 0, 6);
 
         ///////////////
 
