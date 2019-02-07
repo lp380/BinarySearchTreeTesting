@@ -221,6 +221,20 @@ public class Main extends Application {
         grid.addRow(16, row1);
         grid.addRow(17, row2);
 
+        Button insert = new Button("Insert");
+        HBox insertBox = new HBox(10);
+        insertBox.setAlignment(Pos.BOTTOM_LEFT);
+        insertBox.getChildren().add(insert);
+        grid.addRow(18, insertBox);
+
+         insert.setOnAction(new EventHandler<ActionEvent>() {
+             @Override
+             public void handle(ActionEvent event) {
+
+                 System.out.println("Inserting...");
+
+             }
+         });
 
         /*
         firstNameTextField.setMaxWidth(100);
