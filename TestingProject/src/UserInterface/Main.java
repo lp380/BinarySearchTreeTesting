@@ -20,6 +20,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
 public class Main extends Application {
 
     Stage stage;
@@ -70,7 +71,7 @@ public class Main extends Application {
         grid.add(searchFilter, 2, 1);
 
 
-        TextField userTextField = new TextField();
+        final TextField userTextField = new TextField();
         // Add a text field to the grid pane at column 1, row 1
         grid.add(userTextField, 1, 1);
 
@@ -98,7 +99,6 @@ public class Main extends Application {
         grid.add(actiontarget, 1, 6);
 
         searchBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
             public void handle(ActionEvent event) {
                 actiontarget.setFill(Color.FIREBRICK);
                 actiontarget.setText("Sign in button pressed");
@@ -106,7 +106,6 @@ public class Main extends Application {
         });
 
         clearBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
             public void handle(ActionEvent event) {
                 userTextField.clear();
             }
@@ -147,7 +146,6 @@ public class Main extends Application {
         ///////////////
 
         searchFilter.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
             public void handle(ActionEvent event) {
                 int selectedIndex = searchFilter.getSelectionModel().getSelectedIndex();
                 System.out.println(searchFilter.getItems().get(selectedIndex));

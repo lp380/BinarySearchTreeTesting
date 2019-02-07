@@ -45,7 +45,7 @@ public class CSVReader {
 
     public ArrayList<PersonRecord> getAllDataFromCSVFile() {
 
-        ArrayList<PersonRecord> people = new ArrayList<>();
+        ArrayList<PersonRecord> people = new ArrayList<PersonRecord>();
 
         String csvFile = "/home/logan/BinarySearchTreeTesting/TestingProject/src/DatabaseServices/MOCK_DATA.csv";
         BufferedReader reader = null;
