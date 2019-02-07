@@ -64,7 +64,24 @@ public class BinarySearchTree {
         return current;
     }
 
-    public Node  getPersonNodeByLastName(Node root, String lastName) {
+    public PersonRecord getPersonRecordByLastName(String n) {
+        Node node = getPersonNodeByLastName(root, n);
+
+        String id = node.value.getId();
+        String firstName = node.value.getFirstName();
+        String lastName = node.value.getLastname();
+        String email = node.value.getEmail();
+        String company = node.value.getCompany();
+        String jobTitle= node.value.getJobTitle();
+        String university = node.value.getUniversity();
+
+
+        PersonRecord personToReturn = new PersonRecord(id, firstName, lastName, email, company, jobTitle, university);
+
+        return personToReturn;
+    }
+
+    private Node getPersonNodeByLastName(Node root, String lastName) {
         if(root == null) {
             return root;
         }
