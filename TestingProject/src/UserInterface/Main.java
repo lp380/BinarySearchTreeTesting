@@ -69,11 +69,7 @@ public class Main extends Application {
         final ComboBox searchFilter = new ComboBox(options);
         searchFilter.getSelectionModel().selectFirst();
 
-
-
-
         grid.add(searchFilter, 2, 1);
-
 
         TextField userTextField = new TextField();
         userTextField.setPromptText("John...");
@@ -153,9 +149,6 @@ public class Main extends Application {
 
         grid.add(hbBtn2, 1, 6);
 
-
-
-
         ///////////////
 
         searchFilter.setOnAction(new EventHandler<ActionEvent>() {
@@ -205,34 +198,6 @@ public class Main extends Application {
             }
         });
 
-        // clear results button
-
-
-
-        TextField userTextField = new TextField();
-        userTextField.setPromptText("John...");
-        userTextField.setId("textField");
-        // Add a text field to the grid pane at column 1, row 1
-        grid.add(userTextField, 1, 1);
-
-        Label pw = new Label("Password:");
-        grid.add(pw, 0, 2);
-
-        Button searchBtn = new Button("Search");
-        Button clearBtn = new Button("Clear");
-
-        //Create an HBox layout with spacing of 10 pixels.  The HBox pane sets an alignment for the button that is different from the alignment applied to the other controls in the grid pane
-        HBox hbBtn = new HBox(10);
-
-        // Position a node at the bottom of the space vertically and at the right edge of the space horizontally
-        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-
-        // Add button as a child of HBox pane
-        hbBtn.getChildren().addAll(searchBtn, clearBtn);
-        // Add the HBox pane to the grid in column 1, row 4
-        grid.add(hbBtn, 1, 4);
-
-
         TextField firstNameTextField = new TextField();
         TextField lastNameTextField = new TextField();
         TextField emailTextField = new TextField();
@@ -240,11 +205,50 @@ public class Main extends Application {
         TextField jobTitleTextField = new TextField();
         TextField universityTextField = new TextField();
 
-        firstNameTextField.setPromptText("First nae");
+        firstNameTextField.setPromptText("First name...");
+        lastNameTextField.setPromptText("Last name...");
+        emailTextField.setPromptText("Email...");
+        companyTextField.setPromptText("Company...");
+        jobTitleTextField.setPromptText("Job Title...");
+        universityTextField.setPromptText("University...");
+
+        firstNameTextField.setMaxWidth(250);
+
+
+        Label add = new Label("Add a record...");
+        grid.add(add, 1, 14);
+
+        //insertBox.getChildren().addAll(firstNameTextField, lastNameTextField, emailTextField, companyTextField, jobTitleTextField, universityTextField);
+
+        //grid.add(insertBox, 1, 16);
+
+        grid.add(firstNameTextField, 1, 16);
+        grid.add(lastNameTextField, 2, 16);
+        grid.add(emailTextField, 3, 16);
+        grid.add(companyTextField, 1, 17);
+        grid.add(jobTitleTextField, 2, 17);
+        grid.add(universityTextField, 3, 17);
+/////
+
+       // grid.add(add, 1,8);
+
+        /*
+
+        Label firstNameLabel = new Label("First name");
+        grid.add(firstNameLabel, 2, 15 );
+        grid.add(firstNameTextField, 2, 15);
+        grid.add(lastNameTextField, 3, 15);
+        grid.add(emailTextField, 4, 15);
+        grid.add(companyTextField, 5, 15);
+        grid.add(jobTitleTextField, 6, 15);
+        grid.add(universityTextField, 7, 15);
+
+*/
 
 
 
-        Scene scene = new Scene(grid, 300, 275);
+
+        Scene scene = new Scene(grid, 600, 400);
         primaryStage.setScene(scene);
     }
 
