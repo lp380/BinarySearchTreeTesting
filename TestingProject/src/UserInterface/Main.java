@@ -1,6 +1,8 @@
 package UserInterface;
 
 import DatabaseServices.Database;
+import Models.PersonRecord;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +26,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     Stage stage;
+    static Database db;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -98,6 +101,9 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 actiontarget.setFill(Color.FIREBRICK);
                 actiontarget.setText("Search button pressed");
+                String searchText = userTextField.getText();
+                //PersonRecord personToSearch = db.getPersonByLastName(searchText));
+                System.out.println("User is seraching for " + searchText );
 
             }
         });
@@ -283,10 +289,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
-        Database db = new Database();
-
-
+        db = new Database();
 
     }
 }
