@@ -1,5 +1,6 @@
 package UserInterface;
 
+import DatabaseServices.CSVReader;
 import DatabaseServices.Database;
 import Models.PersonRecord;
 
@@ -22,6 +23,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class Main extends Application {
 
@@ -290,6 +293,9 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
         db = new Database();
+        CSVReader reader = new CSVReader();
+        ArrayList<PersonRecord> records = reader.getAllDataFromCSVFile();
+        db.fillBinaryTreeWithAllRecords();
 
     }
 }

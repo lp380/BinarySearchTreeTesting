@@ -30,4 +30,12 @@ public class Database {
 
     }
 
+    public void fillBinaryTreeWithAllRecords(ArrayList<PersonRecord> records) {
+
+        for(PersonRecord r : records) {
+            dataTree.add(r);
+        }
+
+    }
+
 }
