@@ -36,7 +36,7 @@ public class Main extends Application {
 
         GridPane grid = new GridPane();
         // Changes the default position of the grid from top left of the scene to the center
-        grid.setAlignment(Pos.CENTER);
+        grid.setAlignment(Pos.CENTER_LEFT);
         // Manage the spacing between rows and columns
         grid.setHgap(10);
         grid.setVgap(10);
@@ -51,10 +51,9 @@ public class Main extends Application {
         // Add to column 0, row 0. Set the column span to 2 and the row span to 1
         grid.add(scenetitle, 0, 0, 2, 1);
 
-        Label userName = new Label("Search:");
 
-        // Add a label to column 0, row 1
-        grid.add(userName, 0, 1);
+
+
 
         ObservableList<String> options =
                 FXCollections.observableArrayList(
@@ -69,17 +68,15 @@ public class Main extends Application {
         final ComboBox searchFilter = new ComboBox(options);
         searchFilter.getSelectionModel().selectFirst();
 
-        grid.add(searchFilter, 2, 1);
+        grid.add(searchFilter, 1, 1);
 
         TextField userTextField = new TextField();
         userTextField.setPromptText("John...");
         userTextField.setId("textField");
         // Add a text field to the grid pane at column 1, row 1
-        grid.add(userTextField, 1, 1);
+        grid.add(userTextField, 0, 1);
 
-        Label pw = new Label("Password:");
-        grid.add(pw, 0, 2);
-
+   
         Button searchBtn = new Button("Search");
         Button clearBtn = new Button("Clear");
 
@@ -87,12 +84,12 @@ public class Main extends Application {
         HBox hbBtn = new HBox(10);
 
         // Position a node at the bottom of the space vertically and at the right edge of the space horizontally
-        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+        hbBtn.setAlignment(Pos.BOTTOM_LEFT);
 
         // Add button as a child of HBox pane
         hbBtn.getChildren().addAll(searchBtn, clearBtn);
         // Add the HBox pane to the grid in column 1, row 4
-        grid.add(hbBtn, 1, 4);
+        grid.add(hbBtn, 0, 4);
 
 
         //grid.setGridLinesVisible(true);
@@ -212,7 +209,27 @@ public class Main extends Application {
         jobTitleTextField.setPromptText("Job Title...");
         universityTextField.setPromptText("University...");
 
-        firstNameTextField.setMaxWidth(250);
+
+        firstNameTextField.setMaxWidth(100);
+        lastNameTextField.setMaxWidth(100);
+        emailTextField.setMaxWidth(100);
+        companyTextField.setMaxWidth(100);
+        jobTitleTextField.setMaxWidth(100);
+        universityTextField.setMaxWidth(100);
+
+
+        HBox row1 = new HBox();
+        HBox row2 = new HBox();
+        row1.getChildren().addAll(firstNameTextField, lastNameTextField, emailTextField);
+        row2.getChildren().addAll(companyTextField, jobTitleTextField, universityTextField);
+        grid.addRow(16, row1);
+        grid.addRow(17, row2);
+
+
+        /*
+        firstNameTextField.setMaxWidth(100);
+        companyTextField.setMaxWidth(100);
+        lastNameTextField.setMaxWidth(100);
 
 
         Label add = new Label("Add a record...");
@@ -228,6 +245,7 @@ public class Main extends Application {
         grid.add(companyTextField, 1, 17);
         grid.add(jobTitleTextField, 2, 17);
         grid.add(universityTextField, 3, 17);
+        */
 /////
 
        // grid.add(add, 1,8);
@@ -248,7 +266,7 @@ public class Main extends Application {
 
 
 
-        Scene scene = new Scene(grid, 600, 400);
+        Scene scene = new Scene(grid, 750, 600);
         primaryStage.setScene(scene);
     }
 
