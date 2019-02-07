@@ -205,10 +205,44 @@ public class Main extends Application {
             }
         });
 
-
-
-
         // clear results button
+
+
+
+        TextField userTextField = new TextField();
+        userTextField.setPromptText("John...");
+        userTextField.setId("textField");
+        // Add a text field to the grid pane at column 1, row 1
+        grid.add(userTextField, 1, 1);
+
+        Label pw = new Label("Password:");
+        grid.add(pw, 0, 2);
+
+        Button searchBtn = new Button("Search");
+        Button clearBtn = new Button("Clear");
+
+        //Create an HBox layout with spacing of 10 pixels.  The HBox pane sets an alignment for the button that is different from the alignment applied to the other controls in the grid pane
+        HBox hbBtn = new HBox(10);
+
+        // Position a node at the bottom of the space vertically and at the right edge of the space horizontally
+        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+
+        // Add button as a child of HBox pane
+        hbBtn.getChildren().addAll(searchBtn, clearBtn);
+        // Add the HBox pane to the grid in column 1, row 4
+        grid.add(hbBtn, 1, 4);
+
+
+        TextField firstNameTextField = new TextField();
+        TextField lastNameTextField = new TextField();
+        TextField emailTextField = new TextField();
+        TextField companyTextField = new TextField();
+        TextField jobTitleTextField = new TextField();
+        TextField universityTextField = new TextField();
+
+        firstNameTextField.setPromptText("First nae");
+
+
 
         Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
