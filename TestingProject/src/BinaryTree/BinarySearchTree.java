@@ -62,11 +62,23 @@ public class BinarySearchTree {
         return current;
     }
 
-    public PersonRecord getPersonByLastName(String lastName) {
-        
+    public Node  getPersonNodeByLastName(Node root, String lastName) {
+        if(root == null) {
+            return root;
+        }
+
+        if(root.value.getLastname().equals(lastName)) {
+            return root;
+        }
+
+        if(root.value.getLastname().compareTo(lastName) < 0) { // val is greater than the root's last name value
+            return getPersonNodeByLastName(root.right, lastName);
+        } else { // less than the roots value
+            return getPersonNodeByLastName(root.right, lastName);
+        }
     }
 
-
+// get all nodes
 
     public boolean contains(PersonRecord value) {
         return contains(root, value);
@@ -81,7 +93,7 @@ public class BinarySearchTree {
             return true;
         }
 
-        if(personToFind.getLastname().compareTo(current.value.getLastname()) < 0) {
+        if(personToFind.getLastname().compareTo(current.value.getLastname()) < 0) { // current nodes value is less than the key we are looking for
             contains(current.left, personToFind);
         } else {
             contains(current.right, personToFind);
