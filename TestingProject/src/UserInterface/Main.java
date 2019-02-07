@@ -299,6 +299,9 @@ public class Main extends Application {
         db.fillBinaryTreeWithAllRecords(records);
         System.out.println(db.getNumberOfRecordsInTree());
 
+        System.out.println(db.getInt());
+        System.out.println("done");
+
         // launch(args);
     }
 }

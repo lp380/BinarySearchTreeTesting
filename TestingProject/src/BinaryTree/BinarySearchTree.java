@@ -5,18 +5,14 @@ import Models.PersonRecord;
 public class BinarySearchTree {
 
 
-
-    /*
-
-    Every node has a value that is greater than or equal to the node values in the left sub-tree, and less than or equal to the node values in the right sub-tree
-     */
-
     Node root;
 
+    public int total;
     // store people by last name
 
     public BinarySearchTree() {
         root = null;
+        this.total = 0;
     }
 
     public boolean isEmpty() {
@@ -50,9 +46,10 @@ public class BinarySearchTree {
     private Node add(Node current, PersonRecord person) {
 
         if(current == null) {
+            this.total++;
             System.out.println("Setting node");
-            this.root = new Node(person);
-            System.out.println(this.root.value.getLastname());
+            //this.root = new Node(person);
+            //System.out.println(this.root.value.getLastname());
             return this.root;
         }
 
@@ -60,10 +57,7 @@ public class BinarySearchTree {
             current.left = add(current.left, person);
         } else if(person.getLastname().compareTo(current.value.getLastname()) > 0) {
             current.right = add(current.right, person);
-        } else { // last name already exists ??
-            return current;
         }
-
         return current;
     }
 
@@ -123,7 +117,5 @@ public class BinarySearchTree {
 
         return false;
     }
-
-
 
 }

@@ -48,4 +48,8 @@ public class Database {
     public int getNumberOfRecordsInTree() {
         return dataTree.size();
     }
+
+    public int getInt(){
+        return dataTree.total;
+    }
 }
