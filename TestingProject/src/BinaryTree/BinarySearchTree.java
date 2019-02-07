@@ -16,7 +16,7 @@ public class BinarySearchTree {
     // store people by last name
 
     public BinarySearchTree() {
-
+        root = null;
     }
 
     public boolean isEmpty() {
@@ -27,11 +27,11 @@ public class BinarySearchTree {
         return size(root);
     }
 
-    private int size(Node x) {
-        if(x == null) {
+    private int size(Node node) {
+        if(node == null) {
             return 0;
         } else {
-            return x.getSize();
+            return(size(node.left) + 1 + size(node.right));
         }
     }
 
@@ -50,12 +50,15 @@ public class BinarySearchTree {
     private Node add(Node current, PersonRecord person) {
 
         if(current == null) {
-            return new Node(person);
+            System.out.println("Setting node");
+            this.root = new Node(person);
+            System.out.println(this.root.value.getLastname());
+            return this.root;
         }
 
         if(person.getLastname().compareTo(current.value.getLastname()) < 0)  {
             current.left = add(current.left, person);
-        } else if(person.getLastname().compareTo(current.value.getLastname()) > 1) {
+        } else if(person.getLastname().compareTo(current.value.getLastname()) > 0) {
             current.right = add(current.right, person);
         } else { // last name already exists ??
             return current;

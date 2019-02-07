@@ -33,9 +33,19 @@ public class Database {
     public void fillBinaryTreeWithAllRecords(ArrayList<PersonRecord> records) {
 
         for(PersonRecord r : records) {
+            System.out.println("Adding " + r.getFirstName() + " to the tree");
+
             dataTree.add(r);
         }
 
     }
 
+    public void insertRecordIntoTree(PersonRecord r) {
+        dataTree.add(r);
+    }
+
+
+    public int getNumberOfRecordsInTree() {
+        return dataTree.size();
+    }
 }

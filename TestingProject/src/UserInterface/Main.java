@@ -291,11 +291,14 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+
         db = new Database();
         CSVReader reader = new CSVReader();
         ArrayList<PersonRecord> records = reader.getAllDataFromCSVFile();
-        db.fillBinaryTreeWithAllRecords();
+        //System.out.println(records.size());
+        db.fillBinaryTreeWithAllRecords(records);
+        System.out.println(db.getNumberOfRecordsInTree());
 
+        // launch(args);
     }
 }

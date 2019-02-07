@@ -25,9 +25,12 @@ public class CSVReader {
 
         try {
             reader = new BufferedReader(new FileReader(csvFile));
+
+            reader.readLine(); // skip column names
+
             while ((line = reader.readLine()) != null) {
 
-                // use comma as seperator
+                // use comma as separator
                 String[] person = line.split(cvsSplitBy);
 
                 String id = person[0];
@@ -51,7 +54,4 @@ public class CSVReader {
         }
         return people;
     }
-
-
-
 }
