@@ -282,9 +282,6 @@ public class Main extends Application {
 
 */
 
-
-
-
         Scene scene = new Scene(grid, 750, 600);
         primaryStage.setScene(scene);
     }
