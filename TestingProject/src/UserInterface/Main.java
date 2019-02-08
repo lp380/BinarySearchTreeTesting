@@ -72,7 +72,7 @@ public class Main extends Application {
 
         grid.add(searchFilter, 1, 1);
 
-        TextField userTextField = new TextField();
+        final TextField userTextField = new TextField();
         userTextField.setPromptText("John...");
         userTextField.setId("textField");
         // Add a text field to the grid pane at column 1, row 1
@@ -100,7 +100,6 @@ public class Main extends Application {
         grid.add(actiontarget, 1, 6);
 
         searchBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
             public void handle(ActionEvent event) {
                 actiontarget.setFill(Color.FIREBRICK);
                 actiontarget.setText("Search button pressed");
@@ -112,7 +111,6 @@ public class Main extends Application {
         });
 
         clearBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
             public void handle(ActionEvent event) {
                 userTextField.clear();
                 searchFilter.getSelectionModel().clearSelection();
@@ -154,7 +152,6 @@ public class Main extends Application {
         ///////////////
 
         searchFilter.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
             public void handle(ActionEvent event) {
                 int selectedIndex = searchFilter.getSelectionModel().getSelectedIndex();
                 //String choice = (String) searchFilter.getItems().get(selectedIndex);
@@ -200,12 +197,12 @@ public class Main extends Application {
             }
         });
 
-        TextField firstNameTextField = new TextField();
-        TextField lastNameTextField = new TextField();
-        TextField emailTextField = new TextField();
-        TextField companyTextField = new TextField();
-        TextField jobTitleTextField = new TextField();
-        TextField universityTextField = new TextField();
+        final TextField firstNameTextField = new TextField();
+        final TextField lastNameTextField = new TextField();
+        final TextField emailTextField = new TextField();
+        final TextField companyTextField = new TextField();
+        final TextField jobTitleTextField = new TextField();
+        final TextField universityTextField = new TextField();
 
         firstNameTextField.setPromptText("First name...");
         lastNameTextField.setPromptText("Last name...");
@@ -237,10 +234,15 @@ public class Main extends Application {
         grid.addRow(18, insertBox);
 
          insert.setOnAction(new EventHandler<ActionEvent>() {
-             @Override
              public void handle(ActionEvent event) {
 
                  System.out.println("Inserting...");
+                 firstNameTextField.clear();
+                 lastNameTextField.clear();
+                 emailTextField.clear();
+                 companyTextField.clear();
+                 jobTitleTextField.clear();
+                 universityTextField.clear();
 
              }
          });
@@ -299,6 +301,6 @@ public class Main extends Application {
         System.out.println(db.getInt());
         System.out.println("done");
 
-        // launch(args);
+        launch(args);
     }
 }

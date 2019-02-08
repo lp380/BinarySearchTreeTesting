@@ -12,7 +12,7 @@ public class CSVReader {
     ArrayList<PersonRecord> people;
 
     public CSVReader() {
-        people = new ArrayList<>();
+        people = new ArrayList<PersonRecord>();
     }
 
     public ArrayList<PersonRecord> getAllDataFromCSVFile() {
