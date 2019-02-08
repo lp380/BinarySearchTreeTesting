@@ -4,15 +4,15 @@ import Models.PersonRecord;
 
 public class BinarySearchTree {
 
-    /*
-
-    Every node has a value that is greater than or equal to the node values in the left sub-tree, and less than or equal to the node values in the right sub-tree
-     */
 
     Node root;
 
-    public BinarySearchTree() {
+    public int total;
+    // store people by last name
 
+    public BinarySearchTree() {
+        root = null;
+        this.total = 0;
     }
 
     public boolean isEmpty() {
@@ -23,11 +23,11 @@ public class BinarySearchTree {
         return size(root);
     }
 
-    private int size(Node x) {
-        if(x == null) {
+    private int size(Node node) {
+        if(node == null) {
             return 0;
         } else {
-            return x.getSize();
+            return(size(node.left) + 1 + size(node.right));
         }
     }
 
@@ -38,44 +38,81 @@ public class BinarySearchTree {
     // If the new node's value is greater than the current node, go to the right child
     // When the current node is null, we've reached a leaf node and can insert the new node in that position
 
-    public void add(int value) {
+    public void add(PersonRecord value) {
         add(root, value);
     }
 
 
-    private Node add(Node current, int value) {
+    private Node add(Node current, PersonRecord person) {
+
         if(current == null) {
-            return new Node(value);
+            this.total++;
+            System.out.println("Setting node");
+            //this.root = new Node(person);
+            //System.out.println(this.root.value.getLastname());
+            return this.root;
         }
 
-        if(value < current.value) {
-            current.left = add(current.left, value);
-        } else if(value > current.value) {
-            current.right = add(current.right, value);
-        } else { // value exists
-            return current;
+        if(person.getLastname().compareTo(current.value.getLastname()) < 0)  {
+            current.left = add(current.left, person);
+        } else if(person.getLastname().compareTo(current.value.getLastname()) > 0) {
+            current.right = add(current.right, person);
         }
-
         return current;
     }
 
-    public boolean contains(int value) {
+    public PersonRecord getPersonRecordByLastName(String n) {
+        Node node = getPersonNodeByLastName(root, n);
+
+        String id = node.value.getId();
+        String firstName = node.value.getFirstName();
+        String lastName = node.value.getLastname();
+        String email = node.value.getEmail();
+        String company = node.value.getCompany();
+        String jobTitle= node.value.getJobTitle();
+        String university = node.value.getUniversity();
+
+
+        PersonRecord personToReturn = new PersonRecord(id, firstName, lastName, email, company, jobTitle, university);
+
+        return personToReturn;
+    }
+
+    private Node getPersonNodeByLastName(Node root, String lastName) {
+        if(root == null) {
+            return root;
+        }
+
+        if(root.value.getLastname().equals(lastName)) {
+            return root;
+        }
+
+        if(root.value.getLastname().compareTo(lastName) < 0) { // val is greater than the root's last name value
+            return getPersonNodeByLastName(root.right, lastName);
+        } else { // less than the roots value
+            return getPersonNodeByLastName(root.right, lastName);
+        }
+    }
+
+// get all nodes
+
+    public boolean contains(PersonRecord value) {
         return contains(root, value);
     }
 
-    private boolean contains(Node current, int value) {
+    private boolean contains(Node current, PersonRecord personToFind) {
         if(current == null) {
             return false;
         }
 
-        if(value == current.value) {
+        if(personToFind.getLastname().equals(current.value.getLastname())) {
             return true;
         }
 
-        if(value < current.value) {
-            contains(current.left, value);
+        if(personToFind.getLastname().compareTo(current.value.getLastname()) < 0) { // current nodes value is less than the key we are looking for
+            contains(current.left, personToFind);
         } else {
-            contains(current.right, value);
+            contains(current.right, personToFind);
         }
 
         return false;

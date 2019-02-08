@@ -10,43 +10,14 @@ import java.util.ArrayList;
 
 public class CSVReader {
 
-    public static void main(String[] args) {
+    ArrayList<PersonRecord> people;
 
-        /*
-
-        String csvFile = "/home/logan/BinarySearchTreeTesting/TestingProject/src/DatabaseServices/MOCK_DATA.csv";
-        BufferedReader reader = null;
-        String line = "";
-        String cvsSplitBy = ",";
-
-        try {
-            reader = new BufferedReader(new FileReader(csvFile));
-            while ((line = reader.readLine()) != null) {
-
-                // use comma as seperator
-                String[] person = line.split(cvsSplitBy);
-
-                String id = person[0];
-                String firstName = person[1];
-                String lastName = person[2];
-                String email = person[3];
-                String company = person[4];
-                String jobTitle = person[5];
-                String university = person[6];
-
-
-                System.out.println(id + " " + firstName + " " + lastName + " " + email + " " + company + " " + jobTitle + " " + university);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
+    public CSVReader() {
+        people = new ArrayList<>();
     }
 
     public ArrayList<PersonRecord> getAllDataFromCSVFile() {
 
-        ArrayList<PersonRecord> people = new ArrayList<>();
-
         String csvFile = "/home/logan/BinarySearchTreeTesting/TestingProject/src/DatabaseServices/MOCK_DATA.csv";
         BufferedReader reader = null;
         String line = "";
@@ -54,9 +25,12 @@ public class CSVReader {
 
         try {
             reader = new BufferedReader(new FileReader(csvFile));
+
+            reader.readLine(); // skip column names
+
             while ((line = reader.readLine()) != null) {
 
-                // use comma as seperator
+                // use comma as separator
                 String[] person = line.split(cvsSplitBy);
 
                 String id = person[0];
@@ -80,7 +54,4 @@ public class CSVReader {
         }
         return people;
     }
-
-
-
 }
